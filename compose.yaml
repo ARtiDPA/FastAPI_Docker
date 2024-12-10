@@ -1,4 +1,4 @@
-version: '1'
+version: '2'
 
 services:
   test_servis:
@@ -6,3 +6,11 @@ services:
     ports:
       - 8000:8000
     command: "uvicorn main:app --reload --port=8000 --host=0.0.0.0"
+  postgres:
+    image: postgres:15.2
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
+    ports:
+      - "5433:5432"
